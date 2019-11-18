@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		967518C52373A35E008F11CE /* process_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 967518C42373A35E008F11CE /* process_control.c */; };
+		9625647A2376D6CE005372DA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 962564792376D6CE005372DA /* main.c */; };
+		9625647D2376D70A005372DA /* PCB.c in Sources */ = {isa = PBXBuildFile; fileRef = 9625647C2376D70A005372DA /* PCB.c */; };
+		962564802376D79C005372DA /* process_schedule.c in Sources */ = {isa = PBXBuildFile; fileRef = 9625647F2376D79C005372DA /* process_schedule.c */; };
+		96C0ADDC237AFC95002482DE /* MemoryBlock.c in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ADDB237AFC95002482DE /* MemoryBlock.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		962564792376D6CE005372DA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9625647B2376D70A005372DA /* PCB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCB.h; path = OS/Process/PCB.h; sourceTree = SOURCE_ROOT; };
+		9625647C2376D70A005372DA /* PCB.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = PCB.c; path = OS/Process/PCB.c; sourceTree = SOURCE_ROOT; };
+		9625647E2376D79C005372DA /* process_schedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = process_schedule.h; sourceTree = "<group>"; };
+		9625647F2376D79C005372DA /* process_schedule.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = process_schedule.c; sourceTree = "<group>"; };
 		967518C12373A35E008F11CE /* OS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OS; sourceTree = BUILT_PRODUCTS_DIR; };
-		967518C42373A35E008F11CE /* process_control.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = process_control.c; sourceTree = "<group>"; };
+		96C0ADDA237AFC95002482DE /* MemoryBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryBlock.h; sourceTree = "<group>"; };
+		96C0ADDB237AFC95002482DE /* MemoryBlock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MemoryBlock.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +66,31 @@
 		967518C32373A35E008F11CE /* OS */ = {
 			isa = PBXGroup;
 			children = (
-				967518C42373A35E008F11CE /* process_control.c */,
+				96C0ADD923780396002482DE /* Memory */,
+				96C0ADD82378037C002482DE /* Process */,
+				962564792376D6CE005372DA /* main.c */,
 			);
 			path = OS;
+			sourceTree = "<group>";
+		};
+		96C0ADD82378037C002482DE /* Process */ = {
+			isa = PBXGroup;
+			children = (
+				9625647B2376D70A005372DA /* PCB.h */,
+				9625647C2376D70A005372DA /* PCB.c */,
+				9625647E2376D79C005372DA /* process_schedule.h */,
+				9625647F2376D79C005372DA /* process_schedule.c */,
+			);
+			path = Process;
+			sourceTree = "<group>";
+		};
+		96C0ADD923780396002482DE /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				96C0ADDA237AFC95002482DE /* MemoryBlock.h */,
+				96C0ADDB237AFC95002482DE /* MemoryBlock.c */,
+			);
+			path = Memory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				967518C52373A35E008F11CE /* process_control.c in Sources */,
+				9625647A2376D6CE005372DA /* main.c in Sources */,
+				96C0ADDC237AFC95002482DE /* MemoryBlock.c in Sources */,
+				962564802376D79C005372DA /* process_schedule.c in Sources */,
+				9625647D2376D70A005372DA /* PCB.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
