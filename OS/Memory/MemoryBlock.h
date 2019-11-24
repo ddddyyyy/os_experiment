@@ -19,6 +19,7 @@ typedef struct MemoryBlock{
     int state; //内存块的状态
     int start; //当前内存块的开始地址
     int pid;   //作业的id
+    int bid;   //当前分区的id，用于分区释放
 }MemoryBlock;
 
 #endif /* MemoryBlock_h */

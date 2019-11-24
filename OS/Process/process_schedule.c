@@ -682,13 +682,13 @@ void RR(){
 }
 
 
-int main()
-{
-    srand((unsigned)time(NULL));
-    for (int i=0; i<1; i++) {
-        HRRNorSPN(1); //(0)高响应优先或者最短进程优先(1)
-        RR();
-//        RR_With_Resource(); //时间片轮转
-    }
-    return 0;
-}
+//int main()
+//{
+//    srand((unsigned)time(NULL));
+//    for (int i=0; i<1; i++) {
+//        HRRNorSPN(1); //(0)高响应优先或者最短进程优先(1)
+//        RR();
+////        RR_With_Resource(); //时间片轮转
+//    }
+//    return 0;
+//}
