@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0EFD81238B6CE0002D4DF5 /* disk_schedule.c in Sources */ = {isa = PBXBuildFile; fileRef = 7D0EFD80238B6CE0002D4DF5 /* disk_schedule.c */; };
 		9625647A2376D6CE005372DA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 962564792376D6CE005372DA /* main.c */; };
 		9625647D2376D70A005372DA /* PCB.c in Sources */ = {isa = PBXBuildFile; fileRef = 9625647C2376D70A005372DA /* PCB.c */; };
 		962564802376D79C005372DA /* process_schedule.c in Sources */ = {isa = PBXBuildFile; fileRef = 9625647F2376D79C005372DA /* process_schedule.c */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7D0EFD7F238B6CE0002D4DF5 /* disk_schedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = disk_schedule.h; sourceTree = "<group>"; };
+		7D0EFD80238B6CE0002D4DF5 /* disk_schedule.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = disk_schedule.c; sourceTree = "<group>"; };
 		962564792376D6CE005372DA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		9625647B2376D70A005372DA /* PCB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCB.h; path = OS/Process/PCB.h; sourceTree = SOURCE_ROOT; };
 		9625647C2376D70A005372DA /* PCB.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = PCB.c; path = OS/Process/PCB.c; sourceTree = SOURCE_ROOT; };
@@ -47,6 +50,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D0EFD7E238B6C93002D4DF5 /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+				7D0EFD7F238B6CE0002D4DF5 /* disk_schedule.h */,
+				7D0EFD80238B6CE0002D4DF5 /* disk_schedule.c */,
+			);
+			path = Disk;
+			sourceTree = "<group>";
+		};
 		967518B82373A35E008F11CE = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +78,7 @@
 		967518C32373A35E008F11CE /* OS */ = {
 			isa = PBXGroup;
 			children = (
+				7D0EFD7E238B6C93002D4DF5 /* Disk */,
 				96C0ADD923780396002482DE /* Memory */,
 				96C0ADD82378037C002482DE /* Process */,
 				962564792376D6CE005372DA /* main.c */,
@@ -154,6 +167,7 @@
 				96C0ADDC237AFC95002482DE /* MemoryBlock.c in Sources */,
 				962564802376D79C005372DA /* process_schedule.c in Sources */,
 				9625647D2376D70A005372DA /* PCB.c in Sources */,
+				7D0EFD81238B6CE0002D4DF5 /* disk_schedule.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
