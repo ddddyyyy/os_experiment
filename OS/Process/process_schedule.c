@@ -12,7 +12,7 @@ int resource[3] = {10,15,12}; //总资源
 int **alloc_matrix;//分配矩阵
 int **max_matrix; //最大需求矩阵
 int *available_matrix;//可利用资源
-int *finsh;
+int *finsh;//是否完成
 
 BLOCKNODE *waiting_queue = NULL;
 BLOCKNODE *complete_queue = NULL;
@@ -103,37 +103,6 @@ void printPCB()
         }
     
     printf("===================================================================\n\n");
-    //        printf("需要申请的资源数为：[");
-    //        for(int i=0;i<3;++i){
-    //            printf("%d,",target->need_resource[i]);
-    //        }
-    //        printf("],");
-    //        printf("已经拥有的资源数为：[");
-    //        for(int i=0;i<3;++i){
-    //            printf("%d,",alloc_matrix[target->name[0]-49][i]);
-    //        }
-    //        printf("],]->");
-//    printf("最大需求矩阵:\n");
-//    for (int i = 0; i < 5; ++i) {
-//        for(int j=0;j<3;++j){
-//            printf("%d ",max_matrix[i][j]);
-//        }
-//        printf("\n");
-//    }
-//    printf("\n");
-//    printf("分配矩阵:\n");
-//    for (int i = 0; i < 5; ++i) {
-//        for(int j=0;j<3;++j){
-//            printf("%d ",alloc_matrix[i][j]);
-//        }
-//        printf("\n");
-//    }
-//    printf("\n");
-//    printf("可分配资源:");
-//    for(int j=0;j<3;++j){
-//        printf("%d ",available_matrix[j]);
-//    }
-//    printf("\n");
 }
 
 
@@ -175,10 +144,12 @@ void push_block(BLOCKNODE *node){
 //high response rate next
 PCB * addPCBHRRN(int current_time)
 {
+    //初始化节点信息
     BLOCKNODE *temp = initNode();
     PCB *target = temp->data;
     
     if (waiting_queue == NULL){
+        //就绪队列为空说明没有其他的进程，因此直接赋值
         waiting_queue = temp;
         target->status = 'R';
         return target;
@@ -296,6 +267,7 @@ void HRRNorSPN(int HRRNorSPN){
         current_time += 1;
         if (count > 0 && rand() % 10 == 3)
         {
+            //随机加入进程
             if (HRRNorSPN) {
                 addPCBSPN(0);//短进程
             }else{
@@ -303,8 +275,10 @@ void HRRNorSPN(int HRRNorSPN){
             }
         }
         if (waiting_queue != NULL) {
+            //就绪队列第一个进程即为当前进程
             PCB *temp = waiting_queue->data;
             temp->running_time += 1;
+            //增加其他进程的等待时间
             BLOCKNODE *t = waiting_queue->next;
             while (t!=NULL) {
                 t->data->waiting_time++;
@@ -376,7 +350,6 @@ int bank_algorithm(){
     }
     for (int z = 0; z < 5; ++z) {
             //校验是否会发生死锁
-            
             for (int i = 0; i < 5;++i) {
                 int lock = 0;
                 if (!temp_finsh[i]) {
@@ -396,7 +369,7 @@ int bank_algorithm(){
                 }
             }
     }
-    return is_completed(temp_finsh);
+    return is_completed(temp_finsh);//判断finsh数组是否满足条件
 }
 
 //给进程随机分配资源
@@ -404,7 +377,7 @@ void alloc_resource(BLOCKNODE *head){
     printf("****************************开始分配资源****************************\n");
     if (NULL != head) {
         PCB *data = head->data;
-        int index = data->name[0] - 49;
+        int index = data->name[0] - 49;//拿到当前进程在资源数组中的下标
         int *temp = malloc(sizeof(int)*3); //存放之前分配资源的数据
         int success = 1;
         for(int i=0;i<3;++i){
@@ -572,9 +545,9 @@ void RR_With_Resource(){
                     root=root->next;
                 }
                 root->next = waiting_queue;
-                waiting_queue->next = NULL;
-                waiting_queue = root;
+                waiting_queue = waiting_queue->next;
                 waiting_queue->data->status='R';
+                root->next->next = NULL;
             }
             current_slice = slice;//重置时间片
             printf("时间片切换\n");
@@ -615,8 +588,8 @@ void RR(){
         finsh[j]=0;
     }
     
-    int current_slice = slice;
-    addPCBRR();
+    int current_slice = slice;//初始化时间片
+    addPCBRR();//加入新进程
     while (waiting_queue != NULL || count > 0){
         //加入新进程
         if (count > 0 && rand() % 10 == 3)
@@ -686,8 +659,8 @@ void RR(){
 //{
 //    srand((unsigned)time(NULL));
 //    for (int i=0; i<1; i++) {
-//        HRRNorSPN(1); //(0)高响应优先或者最短进程优先(1)
-//        RR();
+//        HRRNorSPN(0); //(0)高响应优先或者最短进程优先(1)
+////        RR();
 ////        RR_With_Resource(); //时间片轮转
 //    }
 //    return 0;

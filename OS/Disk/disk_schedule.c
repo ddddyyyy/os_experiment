@@ -8,8 +8,8 @@
 
 #include "disk_schedule.h"
 
-int start = 100;
-int isLeft = 0;
+int start = 100; //当前磁道位置
+int isLeft = 0;  //当前指针移动方向
 
 
 void print_list(int* list,int count){
@@ -31,8 +31,8 @@ int FCFS(int* requests,int count){
 
 int SSTF(int* requests,int count){
     int t_start = start; //当前磁道
-    int *sort_requests = malloc(sizeof(int)*count);
-    int *visited = malloc(sizeof(int)*count);
+    int *sort_requests = malloc(sizeof(int)*count);//排序后的磁道请求
+    int *visited = malloc(sizeof(int)*count);//记录是否访问过该磁道
     memset(visited,0,count*sizeof(int));
     for (int i = 0; i < count; ++i) {
         int min_index = -1;
@@ -41,9 +41,9 @@ int SSTF(int* requests,int count){
                 min_index = j;
             }
         }
-        t_start = requests[min_index];
+        t_start = requests[min_index];//更新当前磁道位置
         sort_requests[i] = requests[min_index];
-        visited[min_index] = 1;
+        visited[min_index] = 1;//记录该磁道已访问
     }
     return FCFS(sort_requests, count);
 }
@@ -157,7 +157,7 @@ int NSCAN(int* requests,int count){
 
 int main(){
     // 磁盘请求
-    int requests[9] = {55,58,39,18,90,160,150,38,184};
+    int requests[9] = {55,58,39,18,90,160,150,38,184};//磁盘请求，元素的意义为请求的磁道
 //    int requests[5] = {55,58,39,18,90};
 //    printf("扫描算法（SACN）的平均寻道时间为：%.1f\n",SCAN(requests, 5)/5.0f);
     printf("先到先来（FCFS）的平均寻道时间为：%.1f\n",FCFS(requests, 9)/9.0f);

@@ -19,9 +19,6 @@ MemoryBlock *list;
 MemoryBlock *alloc_list;
 int min = 0;
 
-void sort(){
-    
-}
 
 void print_M(){
     printf("==========================当前分区信息================================\n\n");
@@ -104,7 +101,7 @@ MemoryBlock *allco(int *request){
 }
 
 
-/// 释放作业 首次适应
+/// 释放作业
 /// @param request 释放作业请求
 void release(int *request,int firstOrBest){
     MemoryBlock *temp = alloc_list;
@@ -184,7 +181,7 @@ void release(int *request,int firstOrBest){
 }
 
 
-//
+
 //int main(){
 //    list = malloc(sizeof(MemoryBlock));
 //    list->front = NULL;
@@ -198,9 +195,9 @@ void release(int *request,int firstOrBest){
 //        if (requests[i][2] == 0) {
 //            allco(requests[i]);
 //        }else{
-//            release(requests[i],1);
+//            release(requests[i],0);
 //        }
 //    }
 //    return 0;
 //}
-//
+
