@@ -13,4 +13,6 @@
 #include <stdlib.h>
 #include <string.h>
 
+void disk_test(void);
+
 #endif /* disk_schedule_h */

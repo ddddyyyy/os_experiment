@@ -154,12 +154,9 @@ int NSCAN(int* requests,int count){
     return FCFS(sort_requests, count);
 }
 
-
-int main(){
+void disk_test(){
     // 磁盘请求
     int requests[9] = {55,58,39,18,90,160,150,38,184};//磁盘请求，元素的意义为请求的磁道
-//    int requests[5] = {55,58,39,18,90};
-//    printf("扫描算法（SACN）的平均寻道时间为：%.1f\n",SCAN(requests, 5)/5.0f);
     printf("先到先来（FCFS）的平均寻道时间为：%.1f\n",FCFS(requests, 9)/9.0f);
     printf("最短寻道时间优先（SSTF）的平均寻道时间为：%.1f\n",SSTF(requests, 9)/9.0f);
     printf("扫描算法（SACN）的平均寻道时间为：%.1f\n",SCAN(requests, 9)/9.0f);

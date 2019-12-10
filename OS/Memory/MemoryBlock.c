@@ -180,24 +180,21 @@ void release(int *request,int firstOrBest){
     print_M();
 }
 
-
-
-//int main(){
-//    list = malloc(sizeof(MemoryBlock));
-//    list->front = NULL;
-//    list->rear = NULL;
-//    list->size = 640;
-//    list->state = 0;
-//    list->start = 0;
-//    list->pid = -1;
-//    print_M();
-//    for (int i = 0; i < 11; ++i) {
-//        if (requests[i][2] == 0) {
-//            allco(requests[i]);
-//        }else{
-//            release(requests[i],0);
-//        }
-//    }
-//    return 0;
-//}
+void memory_test(){
+        list = malloc(sizeof(MemoryBlock));
+        list->front = NULL;
+        list->rear = NULL;
+        list->size = 640;
+        list->state = 0;
+        list->start = 0;
+        list->pid = -1;
+        print_M();
+        for (int i = 0; i < 11; ++i) {
+            if (requests[i][2] == 0) {
+                allco(requests[i]);
+            }else{
+                release(requests[i],0);
+            }
+        }
+}
 

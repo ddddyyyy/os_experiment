@@ -8,15 +8,16 @@
 
 #include <stdio.h>
 #include "process_schedule.h"
+#include "MemoryBlock.h"
 
 
-
-//int main()
-//{
-//    srand((unsigned)time(NULL));
-//    for (int i=0; i<1; i++) {
-////        HRRNorSPN(1); //(0)高响应优先或者最短进程优先(1)
-//        RR(); //时间片轮转
-//    }
-//    return 0;
-//}
+int main()
+{
+    printf("进程调度实验\n");
+    process_test();
+    printf("内存分配实验\n");
+    memory_test();
+    printf("磁盘访问实验\n");
+    disk_test();
+    return 1;
+}

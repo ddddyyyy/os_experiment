@@ -22,4 +22,6 @@ typedef struct MemoryBlock{
     int bid;   //当前分区的id，用于分区释放
 }MemoryBlock;
 
+void memory_test(void);
+
 #endif /* MemoryBlock_h */

@@ -15,7 +15,6 @@
 #include "PCB.h"
 #include <string.h>
 
-void HRRNorSPN(int);
-void RR(void);
+void process_test(void);
 
 #endif /* process_schedule_h */
